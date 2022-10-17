@@ -14,8 +14,8 @@ int _print_s(va_list ap)
 		str = "(null)";
 	while (str[i])
 	{
-		str_len + _putchar(str[i]);
+		str_len += _putchar(str[i]);
 		i++;
 	}
-	return (i);
+	return (_putchar(str_len));
 }

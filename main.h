@@ -15,6 +15,7 @@ typedef struct id_function
 	char id;
 	int (*f)();
 } format_func;
+
 int _printf(const char *format, ...);
 int _putchar(char c);
 int _print_c(va_list flist);
