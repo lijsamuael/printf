@@ -7,8 +7,8 @@
 #include <stdlib.h>
 /**
  * struct id_function - structure of functions and id
- * @id: identifiers of conversion
- * @f:function pointer of id
+ * @id: identifiers of conversions
+ * @f:function pointer of id.
  */
 typedef struct id_function
 {
