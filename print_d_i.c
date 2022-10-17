@@ -3,7 +3,7 @@
  *print_number - prints an integer
  *@flist: integer to print
  *
- *Return: no zero
+ *Return: return no zero
  */
 int print_number(va_list flist)
 {

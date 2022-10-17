@@ -1,8 +1,8 @@
 #include "main.h"
 /**
  * _printf_s - function to print strings
- * @flist: list of arguments
- * Return: no zero
+ * @flist: list of arguments.
+ * Return: no zeros
  */
 int _printf_s(va_list flist)
 {
