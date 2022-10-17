@@ -1,2 +1,3 @@
 # printf
-This is a repository for a c printf function.
+This is a repository of cprintf function.
+

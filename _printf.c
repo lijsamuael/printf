@@ -3,7 +3,7 @@
 /**
  *_printf - prints an specified format
  *@format: format to print
- *Return: return length of the print
+ *Return: return the length of the print.
  */
 int _printf(const char *format, ...)
 {
