@@ -1,32 +1,32 @@
-#include "main.h"
-/**
- * _print_S - prints a string
- * @ap: a list of arguments
- * Return: the pritable integer
- */
-int _print_S(va_list ap)
-{
-	unsigned char *str;
-	int i = 0, str_len;
 
-	str = va_arg(ap, unsigned char *);
+#include "main.h"
+
+/**
+ * _print_S - prints a string with no pritable cahracters
+ * @S: string to print
+ * Return: length of character
+ */
+int _print_S(va_list S)
+{
+	unsigned int i;
+	int count = 0;
+	char *str = va_arg(S, char *);
+
 	if (str == NULL)
-		str = (unsigned char *) "(null)";
-	while (str[i])
+		str = "(null)";
+	for (i = 0; str[i]; i++)
 	{
 		if (str[i] < 32 || str[i] >= 127)
 		{
 			_putchar('\\');
 			_putchar('x');
-			i += 2;
+			count += 2;
 		}
 		else
 		{
-			str_len += _putchar(str[i]);
-			i++;
+			_putchar(str[i]);
+			count++;
 		}
-
 	}
-	return (str_len);
+	return (count);
 }
-
