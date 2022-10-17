@@ -2,7 +2,7 @@
 /**
  * _print_b - convert a decimal in a base 2
  *  @flist: list of arguments int
- *  Return: len
+ *  Return: length of character
  */
 int _print_b(va_list flist)
 {
