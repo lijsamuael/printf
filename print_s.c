@@ -17,5 +17,5 @@ int _print_s(va_list ap)
 		str_len + _putchar(str[i]);
 		i++;
 	}
-	return (str_len);
+	return (i);
 }
