@@ -1,5 +1,9 @@
 #include "main.h"
-
+/**
+ * _print_b - print a stinr in base 2
+ * @ap: list of arguments
+ * Return: aldkj
+ */
 int _print_b(va_list ap)
 {
 	int pow = 2, c = 1, printd_len = 0;
@@ -11,7 +15,7 @@ int _print_b(va_list ap)
 		n *= -1;
 	}
 	if (n >= 0 && n <= 2)
-		return (printd_len += _putchar(n + '0'));
+		;
 	else
 	{
 		while (c > 0)
