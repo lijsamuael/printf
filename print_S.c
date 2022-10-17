@@ -6,15 +6,15 @@
  */
 int _print_S(va_list ap)
 {
-	char *str;
+	unsigned char *str;
 	int i = 0, str_len;
 
-	str = va_arg(ap, char *);
+	str = va_arg(ap, unsigned char *);
 	if (str == NULL)
-		str = "(null)";
+		str = (unsigned char *) "(null)";
 	while (str[i])
 	{
-		if (str[i] < 32)
+		if (str[i] < 32 || str[i] >= 127)
 		{
 			_putchar('\\');
 			_putchar('x');
