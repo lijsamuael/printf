@@ -10,8 +10,8 @@ int _printf(const char *format, ...)
 	va_list ap;
 	format_func find_func[] = {
 		{'c', _print_c}, {'s', _print_s}, {'i', _print_d}, {'d', _print_d},
-		{'b', _print_b},
-		/* {'o', _print_o},{'u', _print_u},{'x', _print_x},{'X', _print_X},*/
+		/** {'b', _print_b},
+		* {'o', _print_o},{'u', _print_u},{'x', _print_x},{'X', _print_X},*/
 		{'\0', NULL}
 	};
 	if (format == NULL)
