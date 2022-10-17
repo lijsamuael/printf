@@ -1,16 +1,23 @@
 #include "main.h"
 /**
- * _print_d - prints a number
- * @ap: list of arguments
- * Return: a pritable integer
+ *print_number - prints an integer
+ *@flist: integer to print
+ *
+ *Return: no zero
  */
-int _print_d(va_list ap)
+int print_number(va_list flist)
 {
-	int pow = 10, c = 1, n = va_arg(ap, int), printd_len;
+	int power = 10, c = 1, min = 0, len = 0, n = va_arg(flist, int);
 
 	if (n < 0)
 	{
-		printd_len = _putchar('-');
+		if (n == INT_MIN)
+		{
+			min = 1;
+			n += 1;
+		}
+		_putchar('-');
+		len++;
 		n *= -1;
 	}
 	if (n >= 0 && n <= 9)
@@ -19,21 +26,24 @@ int _print_d(va_list ap)
 	{
 		while (c > 0)
 		{
-			if ((n / pow) >= 10)
+			if ((n / power) >= 10)
 			{
-				pow *= 10;
+				power *= 10;
 				c++;
 			}
 			else
 			{
-				printd_len += _putchar((n / pow) + '0');
-				n %= pow;
-				pow /= 10;
+				_putchar((n / power) + '0');
+				n %= power;
+				power /= 10;
+				len++;
 				c--;
 			}
 		}
 	}
-	printd_len += _putchar(n + '0');
+	if (min)
+		n += 1;
+	_putchar(n + '0');
 
-	return (printd_len);
+	return (++len);
 }

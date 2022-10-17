@@ -1,40 +1,42 @@
 #include "main.h"
 /**
- * _print_b - print a stinr in base 2
- * @ap: list of arguments
- * Return: aldkj
+ * _print_b - convert a decimal in a base 2
+ *  @flist: list of arguments int
+ *  Return: len
  */
-int _print_b(va_list ap)
+int _print_b(va_list flist)
 {
-	int pow = 2, c = 1, printd_len = 0;
-	int  n = va_arg(ap, int);
+	long int base = 2;
+	long int n = (long int)va_arg(flist, unsigned int);
+	int c = 1, len = 0;
+	char w = '\0';
 
-	if (n < 0)
+	if (n < 2)
 	{
-		printd_len = _putchar('-');
-		n *= -1;
+		w = n == 0 ? '0' : '1';
+		_putchar(w);
 	}
-	if (n >= 0 && n <= 2)
-		;
 	else
 	{
 		while (c > 0)
 		{
-			if ((n / pow) >= 2)
+			if ((n / base) >= 2)
 			{
-				pow *= 2;
+				base *= 2;
 				c++;
 			}
 			else
 			{
-				printd_len += _putchar((n / pow) + '0');
-				n %= pow;
-				pow /= 2;
+				w = (n / base) + '0';
+				_putchar(w);
+				n %= base;
+				base /= 2;
+				len++;
 				c--;
 			}
 		}
+		w = n + '0';
+		_putchar(w);
 	}
-	printd_len += _putchar(n + '0');
-
-	return (printd_len);
+	return (++len);
 }

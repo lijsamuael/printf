@@ -1,21 +1,24 @@
 #include "main.h"
 /**
- * _print_s - prints a string
- * @ap: a list of arguments
- * Return: the pritable integer
+ * _printf_s - function to print strings
+ * @flist: list of arguments
+ * Return: no zero
  */
-int _print_s(va_list ap)
+int _printf_s(va_list flist)
 {
-	char *str;
-	int  i = 0, str_len;
+	char *ptr = NULL, *_null = "(null)";
+	unsigned int len = 0;
 
-	str = va_arg(ap, char *);
-	if (str == NULL)
-		str = "(null)";
-	while (str[i])
+	ptr = va_arg(flist, char *);
+	if (ptr == NULL)
 	{
-		str_len += _putchar(str[i]);
-		i++;
+		ptr = _null;
 	}
-	return (_putchar(str_len));
+	while (*ptr)
+	{
+		_putchar(*ptr);
+		ptr++;
+		len++;
+	}
+	return (len);
 }

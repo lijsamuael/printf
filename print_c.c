@@ -1,15 +1,13 @@
 #include "main.h"
-
 /**
- * _print_c - prints a character
- * @ap: argument list
- * Return: a printable integer
+ * _printf_c - function to print characters
+ * @flist: list of arguments
+ * Return: no zero
  */
-int _print_c(va_list ap)
+int _printf_c(va_list flist)
 {
 	char c;
 
-	c = va_arg(ap, int);
-	_putchar(c);
-	return (0);
+	c = va_arg(flist, int);
+	return (_putchar(c));
 }

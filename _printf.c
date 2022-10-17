@@ -1,49 +1,51 @@
-#include <stdarg.h>
 #include "main.h"
+#include <stdarg.h>
 /**
- * _printf - prints a formateed string and numbers
- * @format: the format of the arguments can be printed
- * Return: a printable integer
+ *_printf - prints an specified format
+ *@format: format to print
+ *Return: length of the print
  */
 int _printf(const char *format, ...)
-{	unsigned int printf_len = 0, i = 0, k, flag = 0;
-	va_list ap;
-	format_func find_func[] = {
-		{'c', _print_c}, {'s', _print_s}, {'i', _print_d}, {'d', _print_d},
-		/*{'b', _print_b},*/
-		/*{'o', _print_o},{'u', _print_u},{'x', _print_x},{'X', _print_X},*/
-		{'\0', NULL}
-	};
-	if (format == NULL)
+{
+	function_t identity_f[] = {{'c', _printf_c}, {'s', _printf_s},
+		{'i', print_number}, {'d', print_number}, {'b', _print_b},
+		/*{'o', _print_o}, {'u', _print_u}, {'x', _print_x},*/
+		/*{'X', _print_X},*/
+		{'\0', NULL}};
+	va_list flist;
+	unsigned int len_printf = 0, i = 0, k = 0, flag = 0;
+	char j = '\0';
+
+	if (format == NULL || (format[i] == '%' && format[1] == '\0'))
 		return (-1);
-	va_start(ap, format);
+	va_start(flist, format);
 	while (format[i])
 	{
 		for (; format[i] != '%' && format[i] != '\0'; i++)
 		{
-			printf_len += _putchar(format[i]);
+			j = format[i];
+			len_printf += _putchar(j);
 		}
 		flag = i + 1;
-		if (format[flag] == '%')
-		{
-			printf_len += _putchar('%');
-			i += 2;
-		}
+		if (format[flag] == '%' && format[i])
+			_putchar('%'), len_printf++, i += 2;
 		else if (format[flag] == '\0')
-			;
+			i++;
 		else
 		{
-			for (k = 0; find_func[k].id; k++)
+			for (k = 0; identity_f[k].id && format[i]; k++)
 			{
-				if (find_func[k].id == format[flag])
+				if (identity_f[k].id == format[flag])
 				{
-					printf_len += find_func[k].f(ap);
+					len_printf += identity_f[k].f(flist);
 					i += 2;
 					break;
 				}
 			}
 		}
+		if (identity_f[k].id == '\0' && format[i])
+			_putchar(format[i++]), len_printf++;
 	}
-	va_end(ap);
-	return (printf_len);
+	va_end(flist);
+	return (len_printf);
 }
