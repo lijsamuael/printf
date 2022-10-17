@@ -2,7 +2,7 @@
 /**
  * _printf_c - function to print characters
  * @flist: list of arguments
- * Return: no zero
+ * Return: return no zero
  */
 int _printf_c(va_list flist)
 {
