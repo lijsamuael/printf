@@ -27,5 +27,6 @@ int main(void)
     printf("Len:[%d]\n", 'a');
 	_printf("Len:[%d]\n", -909);
     printf("Len:[%d]\n", -909);
+    _printf("%S\n", "Best\nSchool");
     return (0);
 }
